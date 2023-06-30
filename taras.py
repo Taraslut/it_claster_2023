@@ -1,6 +1,5 @@
-import this 
+import requests
 
-print("Hello world!!")
-prnit("I'm alive !")
 
-# Some changes 
+data = requests.get("https://tiptop.ua/shop/noutbuky")
+print(data.text)
