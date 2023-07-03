@@ -1,4 +1,4 @@
-from pkg2.squere import DEFAULT_SIZE
+from pkg_const import DEFAULT_SIZE
 
 SOME_CONST = "Square"
 

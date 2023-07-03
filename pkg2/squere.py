@@ -1,6 +1,5 @@
 from pkg1.helper import SOME_CONST
-
-DEFAULT_SIZE = 10
+from pkg_const import DEFAULT_SIZE
 
 
 def rise_square(val):
