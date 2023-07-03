@@ -1,5 +1,5 @@
-from pkg1.infos import show_info
-from pkg2.squere import rise_square
+from pkg1 import show_info
+from pkg2 import rise_square
 
 size = int(input("Enter rectangle size > "))
 

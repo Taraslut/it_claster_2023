@@ -1,0 +1,1 @@
+from .squere import rise_square
