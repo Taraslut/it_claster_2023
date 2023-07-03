@@ -1,3 +1,8 @@
+from pkg2.squere import DEFAULT_SIZE
+
+SOME_CONST = "Square"
+
 def my_promt():
-    rez = int(input("Square size> "))
+    print(f"{SOME_CONST} have to be less than {DEFAULT_SIZE}")
+    rez = int(input(f"{SOME_CONST} size> "))
     return rez
