@@ -1,7 +1,7 @@
-from pkg1 import show_info
+from pkg1 import show_info, my_promt
 from pkg2 import rise_square
 
-size = int(input("Enter rectangle size > "))
+size = my_promt()
 
 area = rise_square(size)
 
