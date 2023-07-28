@@ -17,18 +17,29 @@ class Fraction:
         return Fraction(rez_num, rez_den)
 
     def __add__(self, other):
-        pass
+        num = self.num * other.den + other.num * self.den
+        den = self.den * other.den
+        return Fraction(num, den)
 
     def __sub__(self, other):
-        pass
+        num = self.num * other.den - other.num * self.den
+        den = self.den * other.den
+        return Fraction(num, den)
 
-    def __divmod__(self, other):
-        pass
+    def __truediv__(self, other):
+        rez_num = self.num * other.den
+        rez_den = self.den * other.num
+        return Fraction(rez_num, rez_den)
 
     def simplify(self):
         """ 4/6 == > 2/3 """
-        pass
-
+        n = min(abs(self.den), abs(self.num))
+        while n > 1:
+            if self.den % n == 0 and self.num % n == 0:
+                self.num = self.num // n
+                self.den = self.den // n
+                break
+            n -= 1
 
 
 f = Fraction(2,1)
@@ -40,4 +51,8 @@ print(f2)
 rr = f * f2 * f
 
 print(rr)
-print(repr(rr))
+print(f + f2)
+# print(repr(rr))
+
+print(Fraction(10, 45))
+print(f2 / Fraction(10, 45))
