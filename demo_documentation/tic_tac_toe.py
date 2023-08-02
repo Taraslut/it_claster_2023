@@ -1,9 +1,14 @@
-# Guru99
-# Code developed by Guru99.com
-# Guru99 tic-tac-toe game
+"""
+Guru99
+Code developed by Guru99.com
+Guru99 tic-tac-toe game
+"""
+
+# get / set
+# check_.... -> bool
 
 
-def get_input(prompt, cast=None, condition=None, error_message=None):
+def get_input(prompt: str, cast: callable = None, condition: callable = None, error_message: str = None):
     """
     Function for input and casting data
     :param prompt: prompt string
@@ -14,9 +19,9 @@ def get_input(prompt, cast=None, condition=None, error_message=None):
     """
     while True:
         try:
-            val = cast(input(prompt))
-            assert condition is None or condition(val)
-            return val
+            value = cast(input(prompt))
+            assert condition is None or condition(value)
+            return value
         except:
             print(error_message or "Invalid input.")
 
@@ -30,18 +35,18 @@ def print_board(board):
 
 
 # Check if player won using the winning combinations
-def check_win(board):
-    # Check rows
-    for row in range(len(board)):
-        for col in range(len(board) - 1):
-            if (
-                board[row][col] == "_"
-                or board[row][col + 1] == "_"
-                or board[row][col] != board[row][col + 1]
-            ):
-                break
-        else:
-            return True
+def my_foo(board):
+    a = board
+    for row in board:
+        for cell in row:
+            if cell == "_":
+                return True
+    return False
+
+
+def check_win(board: list) -> bool:
+    check_rows = check_rows_for_win(board)
+    vaule = my_foo(board)
     # Check column numbers
     for col in range(len(board)):
         for row in range(len(board) - 1):
@@ -77,7 +82,22 @@ def check_win(board):
     else:
         return True
     # No win
-    return False
+    return check_rows or False
+
+
+def check_rows_for_win(board: list) -> bool:
+    check_rows = False
+    for row in range(len(board)):
+        for col in range(len(board) - 1):
+            if (
+                    board[row][col] == "_"
+                    or board[row][col + 1] == "_"
+                    or board[row][col] != board[row][col + 1]
+            ):
+                break
+        else:
+            check_rows = True
+        return check_rows
 
 
 # Play tic tac toe game
@@ -139,7 +159,7 @@ def play():
         # Rematch
         play()
 
-
+    get_input(prompt="Hello", cast=None, condition=lambda x: len(x) > 15)
 # Main
 if __name__ == "__main__":
     play()
